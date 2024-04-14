@@ -195,7 +195,38 @@ enum CompassPoint2: String {
 let earthsOrder = Planet2.earth.rawValue
 let sunsetDirection = CompassPoint2.west.rawValue
 
+// ## 열거형 NameSpace
+/*
+ NameSpace 사용하는 이유 ❗️❗️
+ 네임스페이스는 연관된 값을 한 공간에 이름을 지어 모아둔 공간을 말한다.
+ 쉽게 예를 들면, 우리가 '서랍'에 물건을 보관할 때 , 그 안에 뭐가 들었는 지 '라벨링'하는 것과 비슷하다.
+ 유사한 물건들을 모아둠으로써, 관리(유지보수)가 쉬워지고 재사용도 편리해진다.
+ 네임스페이스를 통해서만 문자열에 접근할 수 있게 만드는 캡슐화(Encapsulation) 방법이기도 하다.
+ 코딩🧑🏻‍💻 을 할 때도 이런 네임스페이스를 잘 만들어두면, 하드 코딩도 방지하고 코드 가독성도 좋아진다.
+ */
+// 열거형에 인스턴스 연산 프로퍼티(Computed Property)를 사용하는 방법
+enum CompassPoint3: String {
+  case north
+  case south
+  case east
+  case west
+
+  var message: String {
+    switch self {
+    case .north:
+      return "북쪽입니다."
+    case .south:
+      return "남쪽입니다."
+    case .east:
+      return "동쪽입니다."
+    case .west:
+      return "서쪽입니다."
+    }
+  }
+}
+
 // 🤔 NameSpace는 원시값과 연관이 있는 건가?
+let nameSpaceEnum = CompassPoint3.east.message
 
 /*
 그러나 가능한 모든 Int 값으로 행성을 찾지는 않는다. 이러한 점 때문에 원시값 초기화는 항상 옵셔널 열거형 케이스를 반환한다.
